@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
-import LoginView from '../views/LoginView.vue' 
+import LoginView from '../views/LoginView.vue'
+import AccessDeniedView from '../views/AccessDeniedView.vue'  
 
 const routes = [
   {
@@ -18,7 +19,12 @@ const routes = [
   {
     path: '/login',
     name: 'Login',
-    component: LoginView 
+    component: LoginView
+  },
+  {
+    path: '/access-denied',
+    name: 'AccessDenied',
+    component: AccessDeniedView
   }
 ]
 
@@ -31,12 +37,12 @@ router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
     const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
     if (!isAuthenticated) {
-      next('/login');
+      next('/access-denied'); 
     } else {
-      next();
+      next(); 
     }
   } else {
-    next();
+    next(); 
   }
 });
 
