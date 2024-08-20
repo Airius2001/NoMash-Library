@@ -1,8 +1,7 @@
 <script setup>
 import JSONLab from './components/JSONLab.vue'
 import BHeader from './components/BHeader.vue'
-// import LibraryRegistrationForm from './components/LibraryRegistrationForm.vue'
-// import HomeView from './views/HomeView.vue'
+
 
 </script>
 
