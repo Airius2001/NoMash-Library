@@ -25,7 +25,7 @@ export default {
     // Fetch books with ISBN > 1000
     const fetchBooks = async () => {
       try {
-        const q = query(collection(db, 'books'), where('isbn', '>', 1000), orderBy('name'), limit(5));
+        const q = query(collection(db, 'books'), where('isbn', '>', 1000), orderBy('name'), limit(3));
         const querySnapshot = await getDocs(q);
         const booksArray = [];
         querySnapshot.forEach((doc) => {
