@@ -18,7 +18,7 @@ const signin=()=>{
     signInWithEmailAndPassword(getAuth(),email.value, password.value)
     .then((data)=>{
         console.log("Firebase Register Successful!")
-        router.push("/")
+        router.push("/FireLogout")
         console.log(auth.currentUser)//To check the current user signed in)
     }).catch((error)=> {
         console.log(error.code);

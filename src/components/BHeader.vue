@@ -20,6 +20,9 @@
         <li class="nav-item">
           <router-link to="/FireRegister" class="nav-link" active-class="active">Firebase Register</router-link>
         </li>
+        <li class="nav-item">
+          <router-link to="/FireLogout" class="nav-link" active-class="active">Firebase Logout</router-link>
+        </li>
       </ul>
     </header>
   </div>
