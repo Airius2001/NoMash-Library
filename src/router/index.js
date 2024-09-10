@@ -6,6 +6,8 @@ import AccessDeniedView from '../views/AccessDeniedView.vue'
 import FirebaseSigninView from '../views/FirebaseSigninView.vue'
 import FirebaseRegisterView from '../views/FirebaseRegisterView.vue'
 import FirebaseSignOutView from '../views/FirebaseSignoutView.vue'
+import AddBookView from '../views/AddBookView.vue'
+import BookList from '../components/BookList.vue'
 
 const routes = [
   {
@@ -38,6 +40,16 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: LoginView
+  },
+  {
+    path: '/addbook',
+    name: 'AddBook',
+    component: AddBookView
+  },
+  {
+    path: '/book-list', 
+    name: 'BookList',
+    component: BookList
   },
   {
     path: '/access-denied',
