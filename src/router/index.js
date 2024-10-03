@@ -8,6 +8,7 @@ import FirebaseRegisterView from '../views/FirebaseRegisterView.vue'
 import FirebaseSignOutView from '../views/FirebaseSignoutView.vue'
 import AddBookView from '../views/AddBookView.vue'
 import BookList from '../components/BookList.vue'
+import GetBookCountView from '../views/GetBookCountView.vue'
 
 const routes = [
   {
@@ -19,6 +20,11 @@ const routes = [
     path: '/FireLogin',
     name: 'FireLogin',
     component: FirebaseSigninView
+  },
+  {
+    path: '/GetBookCount',
+    name: 'GetBookCount',
+    component:  GetBookCountView
   },
   {
     path: '/FireRegister',
