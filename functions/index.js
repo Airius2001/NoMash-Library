@@ -30,19 +30,19 @@ exports.countBooks = onRequest((req, res) => {
     });
 });
 
-// 监听 books 集合中新文档的创建
+
 exports.capitalizeBookFields = functions.firestore
     .document("/books/{bookId}")
     .onCreate((snap, context) => {
-        const bookData = snap.data(); // 获取新文档的数据
-        const bookId = context.params.bookId; // 获取文档ID
+        const bookData = snap.data(); // get data
+        const bookId = context.params.bookId; // get book id
 
         // uppercase name
         const updatedData = {
             name: bookData.name ? bookData.name.toUpperCase() : ""
         };
 
-        // 更新 Firestore 中的书籍文档
+        // update firestore
         return admin.firestore().collection("books").doc(bookId).update(updatedData)
             .then(() => {
                 console.log('Book fields capitalized successfully!');
