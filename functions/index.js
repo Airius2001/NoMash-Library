@@ -8,8 +8,9 @@
  */
 
 const {onRequest} = require("firebase-functions/v2/https");
-const admin = require("firebase-admin");
 const cors = require("cors")({origin: true});
+const functions = require("firebase-functions");
+const admin = require("firebase-admin");
 
 admin.initializeApp();
 // const logger = require("firebase-functions/logger");
@@ -28,6 +29,28 @@ exports.countBooks = onRequest((req, res) => {
         }
     });
 });
+
+// 监听 books 集合中新文档的创建
+exports.capitalizeBookFields = functions.firestore
+    .document("/books/{bookId}")
+    .onCreate((snap, context) => {
+        const bookData = snap.data(); // 获取新文档的数据
+        const bookId = context.params.bookId; // 获取文档ID
+
+        // uppercase name
+        const updatedData = {
+            name: bookData.name ? bookData.name.toUpperCase() : ""
+        };
+
+        // 更新 Firestore 中的书籍文档
+        return admin.firestore().collection("books").doc(bookId).update(updatedData)
+            .then(() => {
+                console.log('Book fields capitalized successfully!');
+            })
+            .catch((error) => {
+                console.error('Error capitalizing book fields: ', error);
+            });
+    });
 
 // Create and deploy your first functions
 // https://firebase.google.com/docs/functions/get-started
