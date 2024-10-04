@@ -9,12 +9,19 @@ import FirebaseSignOutView from '../views/FirebaseSignoutView.vue'
 import AddBookView from '../views/AddBookView.vue'
 import BookList from '../components/BookList.vue'
 import GetBookCountView from '../views/GetBookCountView.vue'
+import WeatherView from '../views/WeatherView.vue'
+import CountBookAPI from '../views/CountBookAPI.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: HomeView
+  },
+  {
+    path: '/CountBookAPI',
+    name: 'CountBookAPI',
+    component: CountBookAPI
   },
   {
     path: '/FireLogin',
@@ -61,6 +68,11 @@ const routes = [
     path: '/access-denied',
     name: 'AccessDenied',
     component: AccessDeniedView
+  },
+  {
+    path: '/WeatherCheck',
+    name: 'WeatherCheck',
+    component: WeatherView
   }
 ]
 
