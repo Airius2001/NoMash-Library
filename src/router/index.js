@@ -13,78 +13,76 @@ import WeatherView from '../views/WeatherView.vue'
 import CountBookAPI from '../views/CountBookAPI.vue'
 import GetAllBookAPI from '../views/GetAllBookAPI.vue'
 
-const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: HomeView
-  },
-  {
-    path: '/GetAllBookAPI',
-    name: 'GetAllBookAPI',
-    component: GetAllBookAPI
-  },
-  {
-    path: '/CountBookAPI',
-    name: 'CountBookAPI',
-    component: CountBookAPI
-  },
-  {
-    path: '/FireLogin',
-    name: 'FireLogin',
-    component: FirebaseSigninView
-  },
-  {
-    path: '/GetBookCount',
-    name: 'GetBookCount',
-    component:  GetBookCountView
-  },
-  {
-    path: '/FireRegister',
-    name: 'FireRegister',
-    component: FirebaseRegisterView
-  },
-  {
-    path: '/FireLogout',
-    name: 'FireLogout',
-    component: FirebaseSignOutView
-  },
-  {
-    path: '/about',
-    name: 'About',
-    component: AboutView,
-    meta: { requiresAuth: true }
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    component: LoginView
-  },
-  {
-    path: '/addbook',
-    name: 'AddBook',
-    component: AddBookView
-  },
-  {
-    path: '/book-list', 
-    name: 'BookList',
-    component: BookList
-  },
-  {
-    path: '/access-denied',
-    name: 'AccessDenied',
-    component: AccessDeniedView
-  },
-  {
-    path: '/WeatherCheck',
-    name: 'WeatherCheck',
-    component: WeatherView
-  }
-]
-
 const router = createRouter({
-  history: createWebHistory(),
-  routes
+  history: createWebHistory(process.env.BASE_URL),
+  routes: [
+    {
+      path: '/',
+      name: 'Home',
+      component: HomeView
+    },
+    {
+      path: '/GetAllBookAPI',
+      name: 'GetAllBookAPI',
+      component: GetAllBookAPI
+    },
+    {
+      path: '/CountBookAPI',
+      name: 'CountBookAPI',
+      component: CountBookAPI
+    },
+    {
+      path: '/FireLogin',
+      name: 'FireLogin',
+      component: FirebaseSigninView
+    },
+    {
+      path: '/GetBookCount',
+      name: 'GetBookCount',
+      component:  GetBookCountView
+    },
+    {
+      path: '/FireRegister',
+      name: 'FireRegister',
+      component: FirebaseRegisterView
+    },
+    {
+      path: '/FireLogout',
+      name: 'FireLogout',
+      component: FirebaseSignOutView
+    },
+    {
+      path: '/about',
+      name: 'About',
+      component: AboutView,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: LoginView
+    },
+    {
+      path: '/addbook',
+      name: 'AddBook',
+      component: AddBookView
+    },
+    {
+      path: '/book-list', 
+      name: 'BookList',
+      component: BookList
+    },
+    {
+      path: '/access-denied',
+      name: 'AccessDenied',
+      component: AccessDeniedView
+    },
+    {
+      path: '/WeatherCheck',
+      name: 'WeatherCheck',
+      component: WeatherView
+    }
+  ]
 })
 
 router.beforeEach((to, from, next) => {
