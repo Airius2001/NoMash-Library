@@ -1,0 +1,6 @@
+name = "week5"
+type = "javascript" 
+
+[build]
+command = "npm run build"
+cwd = "NoMash-Library" 
